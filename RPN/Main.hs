@@ -13,14 +13,17 @@ data Config = Config { banner :: String
                      , prompt :: String
                      , functions :: [(String, [Int] -> [Int])]
                      }
-defaultConfig = Config { banner = "RPN Calculator\n"
+defaultConfig = Config { banner = "RPN Calculator"
                        , prompt = "> "
-                       , functions = [("+", addStack), ("-", subStack)]
+                       , functions = [ ("+", addStack)
+                                     , ("-", subStack)
+                                     ]
                        }
 
 realMain :: (State -> IO ()) -> Config -> State -> IO ()
 realMain restart config state = do
     putStrLn . banner $ config
+    putStrLn ""
     realMain' . numStack $ state
   where realMain' stack = do
             putStr (showPrompt stack) >> hFlush stdout
