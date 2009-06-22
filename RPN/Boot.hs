@@ -17,10 +17,9 @@ showError msg conf = conf {banner = msg}
 runDefault :: IO ()
 rpnCalc    :: Config -> IO ()
 restart    :: State  -> IO ()
-HConf.HConf runDefault rpnCalc restart =
-    HConf.getHConf confParams
-                   defaultConfig
-                   defaultState
+HConf.HConf runDefault rpnCalc restart = HConf.getHConf confParams
+                                                        defaultConfig
+                                                        defaultState
 
 confParams :: HConf.HConfParams Config State
 confParams  = HConf.HConfParams
