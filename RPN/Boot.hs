@@ -1,12 +1,9 @@
 module RPN.Boot ( runDefault, rpnCalc ) where
 
 import qualified HConf
-import Paths_rpnCalc ( getBinDir )
-import RPN.Main      ( realMain )
-import RPN.State     (  State(..), defaultState  )
-import RPN.Config    ( Config(..), defaultConfig )
-
+import Paths_rpnCalc
 import System.IO
+import RPN.Main
 
 loadState :: FilePath -> IO State
 loadState p = readFile p >>= return . read
@@ -27,7 +24,7 @@ HConf.HConf runDefault rpnCalc restart =
 
 confParams :: HConf.HConfParams Config State
 confParams  = HConf.HConfParams
-    { HConf.projectName      = "rpn"
+    { HConf.projectName      = "rpnCalc"
     , HConf.recoverState     = loadState
     , HConf.saveState        = saveState
     , HConf.showErrorsInConf = showError

@@ -1,9 +1,7 @@
 module RPN
   ( module RPN.Boot
-  , module RPN.State
-  , module RPN.Config
+  , module RPN.Main
   ) where
 
 import RPN.Boot
-import RPN.State
-import RPN.Config
+import RPN.Main

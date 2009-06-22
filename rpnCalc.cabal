@@ -16,9 +16,7 @@ Cabal-Version: >= 1.2
 library
   exposed-modules: RPN,
                    RPN.Main,
-                   RPN.Boot,
-                   RPN.State,
-                   RPN.Config
+                   RPN.Boot
   other-modules:   Paths_rpnCalc
   build-depends:   base, hconf
 
